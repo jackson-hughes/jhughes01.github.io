@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Pi-hole - My Docs</title>
+  <title>Pi-hole - jhughes-docs</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -36,7 +36,7 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href="../.." class="icon icon-home"> My Docs</a>
+        <a href="../.." class="icon icon-home"> jhughes-docs</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
@@ -55,11 +55,6 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../../useful-links/">Useful links</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
     <span class="caption-text">Homelab projects</span>
     <ul class="subnav">
                 <li class="">
@@ -72,6 +67,14 @@
     <ul class="subnav">
             
     <li class="toctree-l3"><a href="#pi-hole">Pi-hole</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#install">Install</a></li>
+        
+            <li><a class="toctree-l4" href="#configuration">Configuration</a></li>
+        
+        </ul>
     
 
     </ul>
@@ -89,7 +92,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../..">My Docs</a>
+        <a href="../..">jhughes-docs</a>
       </nav>
 
       
@@ -116,6 +119,25 @@
             <div class="section">
               
                 <h1 id="pi-hole">Pi-hole</h1>
+<p>Raspberry Pi's are fantastic little pieces of cheap kit. </p>
+<p>One of mine is running <code>pi-hole</code> - a network wide ad blocking, DHCP and DNS server. </p>
+<p>It's extremely useful for my homelab providing local dynamic DNS.</p>
+<p>Pi-hole remains extremely similar to the DNS/DHCP technology it is built on - DNSMasq - therefore much of the configuration remains the same.</p>
+<h2 id="install">Install</h2>
+<pre><code>curl -sSL https://install.pi-hole.net | bash
+</code></pre>
+<p><em>Obligatory piping to bash is bad statement here.</em></p>
+<h2 id="configuration">Configuration</h2>
+<p>Pi-hole configuration is stored in <code>/etc/pihole</code>.</p>
+<p>The initial setup configuration is contained within <code>/etc/pihole/setupVars.conf</code>.</p>
+<h3 id="admin-console">Admin console</h3>
+<p>Pi-hole comes with an admin console with pretty graphs. It's accessable at <code>http://$MYHOSTNAME/admin</code>.</p>
+<h3 id="dhcp">DHCP</h3>
+<p>DHCP is disabled by default but can be turned on and configured via the admin portal. </p>
+<p>The configuration is stored in <code>/etc/dnsmasq.d/</code>.</p>
+<p>Active DHCP leases are stored in <code>/etc/dnsmasq.d/02-pihole-dhcp.conf</code> and <strong>static</strong> IP addresses are configured in <code>04-pihole-static-dhcp.conf</code>.</p>
+<h3 id="dns">DNS</h3>
+<h3 id="ad-blocking">Ad-Blocking</h3>
               
             </div>
           </div>
