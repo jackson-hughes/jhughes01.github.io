@@ -80,6 +80,10 @@
                     
     <a class="" href="../fail2ban/">Fail2ban</a>
                 </li>
+                <li class="">
+                    
+    <a class="" href="../freeipa/">FreeIPA</a>
+                </li>
                 <li class=" current">
                     
     <a class="current" href="./">Shell</a>
@@ -158,6 +162,9 @@
 <pre><code>for file in /proc/*/status; do awk '/VmSwap|Name/{printf $2 " " $3}END{ print ""}' $file; done | sort -k 2 -n -r | less
 </code></pre>
 <p>Test mail CLI</p>
+<pre><code>echo "Subject: E-mail test" | sendmail -v $EMAIL_ADDRESS
+</code></pre>
+<p>Test mail CLI (with attachment)</p>
 <pre><code>echo "Special delivery" | mailx -s "Hello" -a testfile1 $EMAIL_ADDRESS
 </code></pre>
 <p>Shell keepalive</p>
@@ -173,7 +180,7 @@
         <a href="../ssh/" class="btn btn-neutral float-right" title="OpenSSH">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../fail2ban/" class="btn btn-neutral" title="Fail2ban"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../freeipa/" class="btn btn-neutral" title="FreeIPA"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -199,7 +206,7 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../fail2ban/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../freeipa/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
         <span style="margin-left: 15px"><a href="../ssh/" style="color: #fcfcfc">Next &raquo;</a></span>
