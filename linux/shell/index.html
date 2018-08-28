@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Letsencrypt - jhughes-docs</title>
+  <title>All things Shell - jhughes-docs</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -17,8 +17,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Letsencrypt";
-    var mkdocs_page_input_path = "homelab-projects/letsencrypt.md";
+    var mkdocs_page_name = "All things Shell";
+    var mkdocs_page_input_path = "linux/shell.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -57,29 +57,17 @@
 		
     <span class="caption-text">Homelab projects</span>
     <ul class="subnav">
-                <li class=" current">
+                <li class="">
                     
-    <a class="current" href="./">Letsencrypt</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#letsencrypt">Letsencrypt</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#initial-ideas">Initial Ideas</a></li>
-        
-        </ul>
-    
-
-    </ul>
+    <a class="" href="../../homelab-projects/letsencrypt/">Letsencrypt</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../overview/">Homelab Overview</a>
+    <a class="" href="../../homelab-projects/overview/">Homelab Overview</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../pi-hole/">Pi-hole</a>
+    <a class="" href="../../homelab-projects/pi-hole/">Pi-hole</a>
                 </li>
     </ul>
 	    </li>
@@ -90,15 +78,27 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../../linux/fail2ban/">Fail2ban</a>
+    <a class="" href="../fail2ban/">Fail2ban</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">All things Shell</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#all-things-shell">All things Shell</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#miscellenous-glorious-one-liners">Miscellenous / Glorious one-liners</a></li>
+        
+        </ul>
+    
+
+    </ul>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../linux/shell/">All things Shell</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../linux/ssh/">OpenSSH</a>
+    <a class="" href="../ssh/">OpenSSH</a>
                 </li>
     </ul>
 	    </li>
@@ -125,11 +125,11 @@
     
       
         
-          <li>Homelab projects &raquo;</li>
+          <li>Linux &raquo;</li>
         
       
     
-    <li>Letsencrypt</li>
+    <li>All things Shell</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -139,16 +139,29 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="letsencrypt">Letsencrypt</h1>
-<p>Letsencrypt provide free SSL certificates. </p>
-<hr />
-<h2 id="initial-ideas">Initial Ideas</h2>
-<p>I intially explored using Terraform to spin up an EC2 instance, run user-data to generate a certificate and then copy it locally. </p>
-<p>My initial expectation was that I would have to provide a Challenge-Response using a webserver (Apache, NGINX), thus the terraform, however I chose to instead use the AWS Route53 provider. </p>
-<p>This meant that I no longer required a publicly accessable EC2 instance. </p>
-<p>I then had a brief look at Dockerising the process so it would become one command and produce the output of the certificate. This was still not ideal as there would be a manual process of implementing the certificate output onto the services that used it. </p>
-<hr />
-<p>In the end - I ended up writing an <a href="https://github.com/jhughes01/ansible-homelab/tree/master/roles/certbot">Ansible role</a> so that nodes could generate and install their own LE certificates as required. </p>
+                <h1 id="all-things-shell">All things Shell</h1>
+<h2 id="miscellenous-glorious-one-liners">Miscellenous / Glorious one-liners</h2>
+<p>Finds anything in current directory that isn't zipped and zips it</p>
+<pre><code>find . -type f ! -iname '*.gz' -exec gzip "{}" \;
+</code></pre>
+<p>Get external IP from CLI</p>
+<pre><code>dig +short myip.opendns.com @resolver1.opendns.com
+</code></pre>
+<p>Move files based on date</p>
+<pre><code>mv `ll | grep 'Jan 31' | awk '{print $9}' [DEST]`
+</code></pre>
+<p>Puppet nuke</p>
+<pre><code>yum -y remove $(rpm -qa | egrep 'puppet|^pe-') ; rm -rf /etc/puppetlabs /opt/puppetlabs /var/log/puppetlabs /etc/sysconfig/p{e-*,uppet}
+</code></pre>
+<p>Print SWAP usage by process</p>
+<pre><code>for file in /proc/*/status; do awk '/VmSwap|Name/{printf $2 " " $3}END{ print ""}' $file; done | sort -k 2 -n -r | less
+</code></pre>
+<p>Test mail CLI</p>
+<pre><code>echo "Special delivery" | mailx -s "Hello" -a testfile1 $EMAIL_ADDRESS
+</code></pre>
+<p>Shell keepalive</p>
+<pre><code>while true; do echo jh; sleep 30; done
+</code></pre>
               
             </div>
           </div>
@@ -156,10 +169,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../overview/" class="btn btn-neutral float-right" title="Homelab Overview">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../ssh/" class="btn btn-neutral float-right" title="OpenSSH">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../.." class="btn btn-neutral" title="Documentation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../fail2ban/" class="btn btn-neutral" title="Fail2ban"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -185,10 +198,10 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../.." style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../fail2ban/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../overview/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../ssh/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
