@@ -146,11 +146,14 @@
                 <h1 id="shell">Shell</h1>
 <p><em>All things shell</em></p>
 <h2 id="miscellenous-glorious-one-liners">Miscellenous / Glorious one-liners</h2>
+<p><br></p>
 <p>Finds anything in current directory that isn't zipped and zips it</p>
 <pre><code>find . -type f ! -iname '*.gz' -exec gzip "{}" \;
 </code></pre>
 <p>Get external IP from CLI</p>
 <pre><code>dig +short myip.opendns.com @resolver1.opendns.com
+
+curl http://checkip.amazonaws.com/
 </code></pre>
 <p>Move files based on date</p>
 <pre><code>mv `ll | grep 'Jan 31' | awk '{print $9}' [DEST]`
