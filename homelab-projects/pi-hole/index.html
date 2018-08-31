@@ -163,6 +163,11 @@
 <p>The initial setup configuration is contained within <code>/etc/pihole/setupVars.conf</code>.</p>
 <h3 id="admin-console">Admin console</h3>
 <p>Pi-hole comes with an admin console with pretty graphs. It's accessable at <code>http://$MYHOSTNAME/admin</code>.</p>
+<h4 id="modify-or-remove-admin-password">Modify or remove admin password</h4>
+<p>With console access, either local or SSH, run:</p>
+<pre><code>pihole -a -p
+</code></pre>
+<p>Leave blank for no password on the admin portal. </p>
 <h3 id="dhcp">DHCP</h3>
 <p>DHCP is disabled by default but can be turned on and configured via the admin portal. </p>
 <p>The configuration is stored in <code>/etc/dnsmasq.d/</code>.</p>
