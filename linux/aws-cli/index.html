@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>FreeIPA - jhughes-docs</title>
+  <title>AWS CLI - jhughes-docs</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -17,8 +17,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "FreeIPA";
-    var mkdocs_page_input_path = "linux/freeipa.md";
+    var mkdocs_page_name = "AWS CLI";
+    var mkdocs_page_input_path = "linux/aws-cli.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -76,29 +76,29 @@
 		
     <span class="caption-text">Linux</span>
     <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../aws-cli/">AWS CLI</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../fail2ban/">Fail2ban</a>
-                </li>
                 <li class=" current">
                     
-    <a class="current" href="./">FreeIPA</a>
+    <a class="current" href="./">AWS CLI</a>
     <ul class="subnav">
             
-    <li class="toctree-l3"><a href="#freeipa">FreeIPA</a></li>
+    <li class="toctree-l3"><a href="#aws-cli">AWS CLI</a></li>
     
         <ul>
         
-            <li><a class="toctree-l4" href="#misc">Misc.</a></li>
+            <li><a class="toctree-l4" href="#ssm">SSM</a></li>
         
         </ul>
     
 
     </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../fail2ban/">Fail2ban</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../freeipa/">FreeIPA</a>
                 </li>
                 <li class="">
                     
@@ -137,7 +137,7 @@
         
       
     
-    <li>FreeIPA</li>
+    <li>AWS CLI</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -147,27 +147,13 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="freeipa">FreeIPA</h1>
-<p>FreeIPA is a comprehensive suite of open source utilities providing an AD like service. </p>
-<h2 id="misc">Misc.</h2>
-<p><br></p>
-<p>Retrieve a list of all users in LDAP</p>
-<pre><code>ipa user-find --sizelimit=0 | grep -i "user login" | awk '{print $3}' &gt; ipausers
+                <h1 id="aws-cli">AWS CLI</h1>
+<h2 id="ssm">SSM</h2>
+<p>Insert parameter into parameter store</p>
+<pre><code>aws ssm put-parameter --name "$PARAM_NAME" --type SecureString --value "$PARAM_VALUE" --key-id alias/$KMS_KEY_NAME
 </code></pre>
-<p>Retrieve a list of all hosts in LDAP</p>
-<pre><code>ipa host-find --sizelimit=0 | grep -i 'host name' | awk '{print $3}'
-</code></pre>
-<p>Loop to determine last login dates from user list</p>
-<pre><code>while read i; do
-echo "$i: $(/bin/ipa user-status $i | grep successful)"
-done &lt; ipausers.txt
-</code></pre>
-<p>Search for logins prior to $DATE</p>
-<pre><code>awk '$NF &lt; "20170201"' lastlogins
-
-E.g.
-
-awk ‘$NF &lt; $(date -d “now -60 days”)
+<p>Retrieve parameter</p>
+<pre><code>aws ssm get-parameter --name "$PARAM_NAME" --with-decryption --region eu-west-2 --output text --query 'Parameter.Value'
 </code></pre>
               
             </div>
@@ -176,10 +162,10 @@ awk ‘$NF &lt; $(date -d “now -60 days”)
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../shell/" class="btn btn-neutral float-right" title="Shell">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../fail2ban/" class="btn btn-neutral float-right" title="Fail2ban">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../fail2ban/" class="btn btn-neutral" title="Fail2ban"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../homelab-projects/pi-hole/" class="btn btn-neutral" title="Pi-hole"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -205,10 +191,10 @@ awk ‘$NF &lt; $(date -d “now -60 days”)
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../fail2ban/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../../homelab-projects/pi-hole/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../shell/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../fail2ban/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
