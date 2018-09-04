@@ -637,8 +637,9 @@
 <p>It's extremely useful for my homelab providing local dynamic DNS.</p>
 <p>Pi-hole remains extremely similar to the DNS/DHCP technology it is built on - DNSMasq - therefore much of the configuration remains the same.</p>
 <h2 id="install">Install</h2>
-<pre><code>curl -sSL https://install.pi-hole.net | bash
+<pre><code class="bash">curl -sSL https://install.pi-hole.net | bash
 </code></pre>
+
 <p><em>Obligatory piping to bash is bad statement here.</em></p>
 <h2 id="configuration">Configuration</h2>
 <p>Pi-hole configuration is stored in <code>/etc/pihole</code>.</p>
@@ -647,8 +648,9 @@
 <p>Pi-hole comes with an admin console with pretty graphs. It's accessable at <code>http://$MYHOSTNAME/admin</code>.</p>
 <h4 id="modify-or-remove-admin-password">Modify or remove admin password</h4>
 <p>With console access, either local or SSH, run:</p>
-<pre><code>pihole -a -p
+<pre><code class="bash">pihole -a -p
 </code></pre>
+
 <p>Leave blank for no password on the admin portal. </p>
 <h3 id="dhcp">DHCP</h3>
 <p>DHCP is disabled by default but can be turned on and configured via the admin portal. </p>

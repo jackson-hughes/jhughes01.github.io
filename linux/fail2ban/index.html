@@ -432,26 +432,6 @@
     Managing jails
   </a>
   
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#list-all-currently-blocked-ip-addresses-in-all-jails" title="List all currently blocked IP addresses in all jails" class="md-nav__link">
-    List all currently blocked IP addresses in all jails
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#unban-an-ip-address" title="Unban an IP address" class="md-nav__link">
-    Unban an IP address
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
       
@@ -538,26 +518,6 @@
     Managing jails
   </a>
   
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#list-all-currently-blocked-ip-addresses-in-all-jails" title="List all currently blocked IP addresses in all jails" class="md-nav__link">
-    List all currently blocked IP addresses in all jails
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#unban-an-ip-address" title="Unban an IP address" class="md-nav__link">
-    Unban an IP address
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
       
@@ -581,11 +541,12 @@
 <h2 id="installation">Installation</h2>
 <p>To-do</p>
 <h2 id="managing-jails">Managing jails</h2>
-<h3 id="list-all-currently-blocked-ip-addresses-in-all-jails">List all currently blocked IP addresses in all jails</h3>
-<pre><code>fail2ban-client status | grep "Jail list:" | sed "s/ //g" | awk '{split($2,a,",");for(i in a) system("fail2ban-client status " a[i])}' | grep "Status\|IP list"
+<p>List all currently blocked IP addresses in all jails</p>
+<pre><code class="bash">fail2ban-client status | grep &quot;Jail list:&quot; | sed &quot;s/ //g&quot; | awk '{split($2,a,&quot;,&quot;);for(i in a) system(&quot;fail2ban-client status &quot; a[i])}' | grep &quot;Status\|IP list&quot;
 </code></pre>
-<h3 id="unban-an-ip-address">Unban an IP address</h3>
-<pre><code>fail2ban-client set $JAIL_NAME unbanip 1.2.3.4
+
+<p>Unban an IP address</p>
+<pre><code class="bash">fail2ban-client set $JAIL_NAME unbanip 1.2.3.4
 </code></pre>
                 
                   

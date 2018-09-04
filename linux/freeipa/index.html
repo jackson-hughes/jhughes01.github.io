@@ -437,40 +437,6 @@
     User Management
   </a>
   
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#add-user" title="Add User" class="md-nav__link">
-    Add User
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#add-group" title="Add Group" class="md-nav__link">
-    Add Group
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#add-user-to-group" title="Add User to Group" class="md-nav__link">
-    Add User to Group
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#reset-user-password" title="Reset User Password" class="md-nav__link">
-    Reset User Password
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -552,40 +518,6 @@
     User Management
   </a>
   
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#add-user" title="Add User" class="md-nav__link">
-    Add User
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#add-group" title="Add Group" class="md-nav__link">
-    Add Group
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#add-user-to-group" title="Add User to Group" class="md-nav__link">
-    Add User to Group
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#reset-user-password" title="Reset User Password" class="md-nav__link">
-    Reset User Password
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -622,32 +554,37 @@
                 <h1 id="freeipa">FreeIPA</h1>
 <p>FreeIPA is a comprehensive suite of open source utilities providing an AD like service. </p>
 <h2 id="user-management">User Management</h2>
-<h3 id="add-user">Add User</h3>
-<h3 id="add-group">Add Group</h3>
-<h3 id="add-user-to-group">Add User to Group</h3>
-<h3 id="reset-user-password">Reset User Password</h3>
-<pre><code>ipa user-mod john.smith --password
+<p>Add User</p>
+<p>Add Group</p>
+<p>Add User to Group</p>
+<p>Reset User Password</p>
+<pre><code class="bash">ipa user-mod john.smith --password
 </code></pre>
+
 <h2 id="host-management">Host Management</h2>
 <h2 id="misc">Misc.</h2>
 <p><br></p>
 <p>Retrieve a list of all users in LDAP</p>
-<pre><code>ipa user-find --sizelimit=0 | grep -i "user login" | awk '{print $3}' &gt; ipausers
+<pre><code class="bash">ipa user-find --sizelimit=0 | grep -i &quot;user login&quot; | awk '{print $3}' &gt; ipausers
 </code></pre>
+
 <p>Retrieve a list of all hosts in LDAP</p>
-<pre><code>ipa host-find --sizelimit=0 | grep -i 'host name' | awk '{print $3}'
+<pre><code class="bash">ipa host-find --sizelimit=0 | grep -i 'host name' | awk '{print $3}' 
 </code></pre>
+
 <p>Loop to determine last login dates from user list</p>
-<pre><code>while read i; do
-echo "$i: $(/bin/ipa user-status $i | grep successful)"
+<pre><code class="bash">while read i; do
+  echo &quot;$i: $(/bin/ipa user-status $i | grep successful)&quot;
 done &lt; ipausers.txt
 </code></pre>
+
 <p>Search for logins prior to $DATE</p>
-<pre><code>awk '$NF &lt; "20170201"' lastlogins
+<pre><code class="bash">awk '$NF &lt; &quot;20170201&quot;' lastlogins
+</code></pre>
 
-E.g.
-
-awk ‘$NF &lt; $(date -d “now -60 days”)
+<pre><code>E.g.
+</code></pre>
+<pre><code class="bash">awk ‘$NF &lt; $(date -d “now -60 days”)
 </code></pre>
                 
                   

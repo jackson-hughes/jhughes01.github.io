@@ -528,31 +528,39 @@
 <h2 id="miscellenous-glorious-one-liners">Miscellenous / Glorious one-liners</h2>
 <p><br></p>
 <p>Finds anything in current directory that isn't zipped and zips it</p>
-<pre><code>find . -type f ! -iname '*.gz' -exec gzip "{}" \;
+<pre><code class="bash">find . -type f ! -iname '*.gz' -exec gzip &quot;{}&quot; \;
 </code></pre>
+
 <p>Get external IP from CLI</p>
-<pre><code>dig +short myip.opendns.com @resolver1.opendns.com
+<p>``` bash tab="DNS"
+dig +short myip.opendns.com @resolver1.opendns.com</p>
+<pre><code>
+``` bash tab=&quot;Curl&quot;
+curl http://checkip.amazonaws.com/
 </code></pre>
-<p>or</p>
-<pre><code>curl http://checkip.amazonaws.com/
-</code></pre>
+
 <p>Move files based on date</p>
-<pre><code>mv `ll | grep 'Jan 31' | awk '{print $9}' [DEST]`
+<pre><code class="bash">mv `ll | grep 'Jan 31' | awk '{print $9}' [DEST]`
 </code></pre>
+
 <p>Puppet nuke</p>
-<pre><code>yum -y remove $(rpm -qa | egrep 'puppet|^pe-') ; rm -rf /etc/puppetlabs /opt/puppetlabs /var/log/puppetlabs /etc/sysconfig/p{e-*,uppet}
+<pre><code class="bash">yum -y remove $(rpm -qa | egrep 'puppet|^pe-') ; rm -rf /etc/puppetlabs /opt/puppetlabs /var/log/puppetlabs /etc/sysconfig/p{e-*,uppet}
 </code></pre>
+
 <p>Print SWAP usage by process</p>
-<pre><code>for file in /proc/*/status; do awk '/VmSwap|Name/{printf $2 " " $3}END{ print ""}' $file; done | sort -k 2 -n -r | less
+<pre><code class="bash">for file in /proc/*/status; do awk '/VmSwap|Name/{printf $2 &quot; &quot; $3}END{ print &quot;&quot;}' $file; done | sort -k 2 -n -r | less
 </code></pre>
+
 <p>Test mail CLI</p>
-<pre><code>echo "Subject: E-mail test" | sendmail -v $EMAIL_ADDRESS
+<p>```bash tab="Sendmail"
+echo "Subject: E-mail test" | sendmail -v $EMAIL_ADDRESS</p>
+<pre><code>
+```bash tab=&quot;Mailx (attachment)&quot;
+echo &quot;Special delivery&quot; | mailx -s &quot;Hello&quot; -a testfile1 $EMAIL_ADDRESS
 </code></pre>
-<p>Test mail CLI (with attachment)</p>
-<pre><code>echo "Special delivery" | mailx -s "Hello" -a testfile1 $EMAIL_ADDRESS
-</code></pre>
+
 <p>Shell keepalive</p>
-<pre><code>while true; do echo jh; sleep 30; done
+<pre><code class="bash">while true; do echo jh; sleep 30; done
 </code></pre>
                 
                   

@@ -526,10 +526,11 @@
                 <h1 id="aws-cli">AWS CLI</h1>
 <h2 id="ssm">SSM</h2>
 <p>Insert parameter into parameter store</p>
-<pre><code>aws ssm put-parameter --name "$PARAM_NAME" --type SecureString --value "$PARAM_VALUE" --key-id alias/$KMS_KEY_NAME
+<pre><code class="bash">aws ssm put-parameter --name &quot;$PARAM_NAME&quot; --type SecureString --value &quot;$PARAM_VALUE&quot; --key-id alias/$KMS_KEY_NAME
 </code></pre>
+
 <p>Retrieve parameter</p>
-<pre><code>aws ssm get-parameter --name "$PARAM_NAME" --with-decryption --region eu-west-2 --output text --query 'Parameter.Value'
+<pre><code class="bash">aws ssm get-parameter --name &quot;$PARAM_NAME&quot; --with-decryption --region eu-west-2 --output text --query 'Parameter.Value'
 </code></pre>
                 
                   
