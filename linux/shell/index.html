@@ -523,45 +523,66 @@
               
                 
                 
-                <h1 id="shell">Shell</h1>
+                <h1 id="shell">Shell<a class="headerlink" href="#shell" title="Permanent link">&para;</a></h1>
 <p><em>All things shell</em></p>
-<h2 id="miscellenous-glorious-one-liners">Miscellenous / Glorious one-liners</h2>
+<h2 id="miscellenous-glorious-one-liners">Miscellenous / Glorious one-liners<a class="headerlink" href="#miscellenous-glorious-one-liners" title="Permanent link">&para;</a></h2>
 <p><br></p>
 <p>Finds anything in current directory that isn't zipped and zips it</p>
-<pre><code class="bash">find . -type f ! -iname '*.gz' -exec gzip &quot;{}&quot; \;
-</code></pre>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>find . -type f ! -iname <span class="s1">&#39;*.gz&#39;</span> -exec gzip <span class="s2">&quot;{}&quot;</span> <span class="se">\;</span>
+</pre></div>
+</td></tr></table>
 
+<p><br></p>
 <p>Get external IP from CLI</p>
-<p>``` bash tab="DNS"
-dig +short myip.opendns.com @resolver1.opendns.com</p>
-<pre><code>
-``` bash tab=&quot;Curl&quot;
-curl http://checkip.amazonaws.com/
-</code></pre>
-
+<div class="superfences-tabs">
+<input name="__tabs_1" type="radio" id="__tab_1_0" checked="checked" />
+<label for="__tab_1_0">Curl</label>
+<div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>curl http://checkip.amazonaws.com/
+</pre></div>
+</td></tr></table></div>
+<input name="__tabs_1" type="radio" id="__tab_1_1" />
+<label for="__tab_1_1">DNS</label>
+<div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>dig +short myip.opendns.com @resolver1.opendns.com
+</pre></div>
+</td></tr></table></div>
+</div>
+<p><br></p>
 <p>Move files based on date</p>
-<pre><code class="bash">mv `ll | grep 'Jan 31' | awk '{print $9}' [DEST]`
-</code></pre>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>mv <span class="sb">`</span>ll <span class="p">|</span> grep <span class="s1">&#39;Jan 31&#39;</span> <span class="p">|</span> awk <span class="s1">&#39;{print $9}&#39;</span> <span class="o">[</span>DEST<span class="o">]</span><span class="sb">`</span>
+</pre></div>
+</td></tr></table>
 
+<p><br></p>
 <p>Puppet nuke</p>
-<pre><code class="bash">yum -y remove $(rpm -qa | egrep 'puppet|^pe-') ; rm -rf /etc/puppetlabs /opt/puppetlabs /var/log/puppetlabs /etc/sysconfig/p{e-*,uppet}
-</code></pre>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>yum -y remove <span class="k">$(</span>rpm -qa <span class="p">|</span> egrep <span class="s1">&#39;puppet|^pe-&#39;</span><span class="k">)</span> <span class="p">;</span> rm -rf /etc/puppetlabs /opt/puppetlabs /var/log/puppetlabs /etc/sysconfig/p<span class="o">{</span>e-*,uppet<span class="o">}</span>
+</pre></div>
+</td></tr></table>
 
+<p><br></p>
 <p>Print SWAP usage by process</p>
-<pre><code class="bash">for file in /proc/*/status; do awk '/VmSwap|Name/{printf $2 &quot; &quot; $3}END{ print &quot;&quot;}' $file; done | sort -k 2 -n -r | less
-</code></pre>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">for</span> file in /proc/*/status<span class="p">;</span> <span class="k">do</span> awk <span class="s1">&#39;/VmSwap|Name/{printf $2 &quot; &quot; $3}END{ print &quot;&quot;}&#39;</span> <span class="nv">$file</span><span class="p">;</span> <span class="k">done</span> <span class="p">|</span> sort -k <span class="m">2</span> -n -r <span class="p">|</span> less
+</pre></div>
+</td></tr></table>
 
+<p><br></p>
 <p>Test mail CLI</p>
-<p>```bash tab="Sendmail"
-echo "Subject: E-mail test" | sendmail -v $EMAIL_ADDRESS</p>
-<pre><code>
-```bash tab=&quot;Mailx (attachment)&quot;
-echo &quot;Special delivery&quot; | mailx -s &quot;Hello&quot; -a testfile1 $EMAIL_ADDRESS
-</code></pre>
-
+<div class="superfences-tabs">
+<input name="__tabs_2" type="radio" id="__tab_2_0" checked="checked" />
+<label for="__tab_2_0">Sendmail</label>
+<div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nb">echo</span> <span class="s2">&quot;Subject: E-mail test&quot;</span> <span class="p">|</span> sendmail -v <span class="nv">$EMAIL_ADDRESS</span>
+</pre></div>
+</td></tr></table></div>
+<input name="__tabs_2" type="radio" id="__tab_2_1" />
+<label for="__tab_2_1">Mailx (attachment)</label>
+<div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nb">echo</span> <span class="s2">&quot;Special delivery&quot;</span> <span class="p">|</span> mailx -s <span class="s2">&quot;Hello&quot;</span> -a testfile1 <span class="nv">$EMAIL_ADDRESS</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<p><br></p>
 <p>Shell keepalive</p>
-<pre><code class="bash">while true; do echo jh; sleep 30; done
-</code></pre>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">while</span> true<span class="p">;</span> <span class="k">do</span> <span class="nb">echo</span> jh<span class="p">;</span> sleep <span class="m">30</span><span class="p">;</span> <span class="k">done</span>
+</pre></div>
+</td></tr></table>
                 
                   
                 

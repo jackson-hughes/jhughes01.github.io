@@ -551,41 +551,51 @@
               
                 
                 
-                <h1 id="freeipa">FreeIPA</h1>
+                <h1 id="freeipa">FreeIPA<a class="headerlink" href="#freeipa" title="Permanent link">&para;</a></h1>
 <p>FreeIPA is a comprehensive suite of open source utilities providing an AD like service. </p>
-<h2 id="user-management">User Management</h2>
+<h2 id="user-management">User Management<a class="headerlink" href="#user-management" title="Permanent link">&para;</a></h2>
 <p>Add User</p>
 <p>Add Group</p>
 <p>Add User to Group</p>
 <p>Reset User Password</p>
-<pre><code class="bash">ipa user-mod john.smith --password
-</code></pre>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>ipa user-mod john.smith --password
+</pre></div>
+</td></tr></table>
 
-<h2 id="host-management">Host Management</h2>
-<h2 id="misc">Misc.</h2>
+<p><br></p>
+<h2 id="host-management">Host Management<a class="headerlink" href="#host-management" title="Permanent link">&para;</a></h2>
+<h2 id="misc">Misc.<a class="headerlink" href="#misc" title="Permanent link">&para;</a></h2>
 <p><br></p>
 <p>Retrieve a list of all users in LDAP</p>
-<pre><code class="bash">ipa user-find --sizelimit=0 | grep -i &quot;user login&quot; | awk '{print $3}' &gt; ipausers
-</code></pre>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>ipa user-find --sizelimit<span class="o">=</span><span class="m">0</span> <span class="p">|</span> grep -i <span class="s2">&quot;user login&quot;</span> <span class="p">|</span> awk <span class="s1">&#39;{print $3}&#39;</span> &gt; ipausers
+</pre></div>
+</td></tr></table>
 
+<p><br></p>
 <p>Retrieve a list of all hosts in LDAP</p>
-<pre><code class="bash">ipa host-find --sizelimit=0 | grep -i 'host name' | awk '{print $3}' 
-</code></pre>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>ipa host-find --sizelimit<span class="o">=</span><span class="m">0</span> <span class="p">|</span> grep -i <span class="s1">&#39;host name&#39;</span> <span class="p">|</span> awk <span class="s1">&#39;{print $3}&#39;</span> 
+</pre></div>
+</td></tr></table>
 
+<p><br></p>
 <p>Loop to determine last login dates from user list</p>
-<pre><code class="bash">while read i; do
-  echo &quot;$i: $(/bin/ipa user-status $i | grep successful)&quot;
-done &lt; ipausers.txt
-</code></pre>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">while</span> <span class="nb">read</span> i<span class="p">;</span> <span class="k">do</span>
+  <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$i</span><span class="s2">: </span><span class="k">$(</span>/bin/ipa user-status <span class="nv">$i</span> <span class="p">|</span> grep successful<span class="k">)</span><span class="s2">&quot;</span>
+<span class="k">done</span> &lt; ipausers.txt
+</pre></div>
+</td></tr></table>
 
+<p><br></p>
 <p>Search for logins prior to $DATE</p>
-<pre><code class="bash">awk '$NF &lt; &quot;20170201&quot;' lastlogins
-</code></pre>
-
-<pre><code>E.g.
-</code></pre>
-<pre><code class="bash">awk ‘$NF &lt; $(date -d “now -60 days”)
-</code></pre>
+<p><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>awk <span class="s1">&#39;$NF &lt; &quot;20170201&quot;&#39;</span> lastlogins
+</pre></div>
+</td></tr></table>
+    E.g.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>awk ‘<span class="nv">$NF</span> &lt; <span class="k">$(</span>date -d “now -60 days”<span class="k">)</span>
+</pre></div>
+</td></tr></table>
                 
                   
                 

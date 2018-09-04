@@ -523,10 +523,10 @@
               
                 
                 
-                <h1 id="letsencrypt">Letsencrypt</h1>
+                <h1 id="letsencrypt">Letsencrypt<a class="headerlink" href="#letsencrypt" title="Permanent link">&para;</a></h1>
 <p>Letsencrypt provide free SSL certificates. </p>
 <hr />
-<h2 id="initial-ideas">Initial Ideas</h2>
+<h2 id="initial-ideas">Initial Ideas<a class="headerlink" href="#initial-ideas" title="Permanent link">&para;</a></h2>
 <p>I intially explored using Terraform to spin up an EC2 instance, run user-data to generate a certificate and then copy it locally. </p>
 <p>My initial expectation was that I would have to provide a Challenge-Response using a webserver (Apache, NGINX), thus the terraform, however I chose to instead use the AWS Route53 provider. </p>
 <p>This meant that I no longer required a publicly accessable EC2 instance. </p>

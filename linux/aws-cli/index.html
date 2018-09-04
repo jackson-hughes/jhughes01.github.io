@@ -523,15 +523,18 @@
               
                 
                 
-                <h1 id="aws-cli">AWS CLI</h1>
-<h2 id="ssm">SSM</h2>
+                <h1 id="aws-cli">AWS CLI<a class="headerlink" href="#aws-cli" title="Permanent link">&para;</a></h1>
+<h2 id="ssm">SSM<a class="headerlink" href="#ssm" title="Permanent link">&para;</a></h2>
 <p>Insert parameter into parameter store</p>
-<pre><code class="bash">aws ssm put-parameter --name &quot;$PARAM_NAME&quot; --type SecureString --value &quot;$PARAM_VALUE&quot; --key-id alias/$KMS_KEY_NAME
-</code></pre>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>aws ssm put-parameter --name <span class="s2">&quot;</span><span class="nv">$PARAM_NAME</span><span class="s2">&quot;</span> --type SecureString --value <span class="s2">&quot;</span><span class="nv">$PARAM_VALUE</span><span class="s2">&quot;</span> --key-id alias/<span class="nv">$KMS_KEY_NAME</span>
+</pre></div>
+</td></tr></table>
 
+<p><br></p>
 <p>Retrieve parameter</p>
-<pre><code class="bash">aws ssm get-parameter --name &quot;$PARAM_NAME&quot; --with-decryption --region eu-west-2 --output text --query 'Parameter.Value'
-</code></pre>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>aws ssm get-parameter --name <span class="s2">&quot;</span><span class="nv">$PARAM_NAME</span><span class="s2">&quot;</span> --with-decryption --region eu-west-2 --output text --query <span class="s1">&#39;Parameter.Value&#39;</span>
+</pre></div>
+</td></tr></table>
                 
                   
                 

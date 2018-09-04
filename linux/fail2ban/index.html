@@ -537,17 +537,20 @@
               
                 
                 
-                <h1 id="fail2ban">Fail2ban</h1>
-<h2 id="installation">Installation</h2>
+                <h1 id="fail2ban">Fail2ban<a class="headerlink" href="#fail2ban" title="Permanent link">&para;</a></h1>
+<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
 <p>To-do</p>
-<h2 id="managing-jails">Managing jails</h2>
+<h2 id="managing-jails">Managing jails<a class="headerlink" href="#managing-jails" title="Permanent link">&para;</a></h2>
 <p>List all currently blocked IP addresses in all jails</p>
-<pre><code class="bash">fail2ban-client status | grep &quot;Jail list:&quot; | sed &quot;s/ //g&quot; | awk '{split($2,a,&quot;,&quot;);for(i in a) system(&quot;fail2ban-client status &quot; a[i])}' | grep &quot;Status\|IP list&quot;
-</code></pre>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>fail2ban-client status <span class="p">|</span> grep <span class="s2">&quot;Jail list:&quot;</span> <span class="p">|</span> sed <span class="s2">&quot;s/ //g&quot;</span> <span class="p">|</span> awk <span class="s1">&#39;{split($2,a,&quot;,&quot;);for(i in a) system(&quot;fail2ban-client status &quot; a[i])}&#39;</span> <span class="p">|</span> grep <span class="s2">&quot;Status\|IP list&quot;</span>
+</pre></div>
+</td></tr></table>
 
+<p><br></p>
 <p>Unban an IP address</p>
-<pre><code class="bash">fail2ban-client set $JAIL_NAME unbanip 1.2.3.4
-</code></pre>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>fail2ban-client <span class="nb">set</span> <span class="nv">$JAIL_NAME</span> unbanip <span class="m">1</span>.2.3.4
+</pre></div>
+</td></tr></table>
                 
                   
                 
