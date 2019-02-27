@@ -337,6 +337,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#querying-searching" title="Querying / searching" class="md-nav__link">
+    Querying / searching
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#ssm" title="SSM" class="md-nav__link">
     SSM
   </a>
@@ -507,6 +514,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#querying-searching" title="Querying / searching" class="md-nav__link">
+    Querying / searching
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#ssm" title="SSM" class="md-nav__link">
     SSM
   </a>
@@ -531,6 +545,12 @@
                 
                 
                 <h1 id="aws-cli">AWS CLI<a class="headerlink" href="#aws-cli" title="Permanent link">&para;</a></h1>
+<h2 id="querying-searching">Querying / searching<a class="headerlink" href="#querying-searching" title="Permanent link">&para;</a></h2>
+<p>Query EC2 instances filtered on specific tag</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>aws ec2 describe-instances --filter <span class="s2">&quot;Name=tag:Name,Values=tagvalue&quot;</span>
+</pre></div>
+</td></tr></table>
+
 <h2 id="ssm">SSM<a class="headerlink" href="#ssm" title="Permanent link">&para;</a></h2>
 <p>Insert parameter into parameter store</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>aws ssm put-parameter --name <span class="s2">&quot;</span><span class="nv">$PARAM_NAME</span><span class="s2">&quot;</span> --type SecureString --value <span class="s2">&quot;</span><span class="nv">$PARAM_VALUE</span><span class="s2">&quot;</span> --key-id alias/<span class="nv">$KMS_KEY_NAME</span>
