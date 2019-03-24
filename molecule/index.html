@@ -32,7 +32,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.0.2">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.1.0">
     
     
       
@@ -51,7 +51,7 @@
       
     
     
-      <script src="../assets/javascripts/modernizr.1f0bcf2b.js"></script>
+      <script src="../assets/javascripts/modernizr.01ccdecf.js"></script>
     
     
       
@@ -564,6 +564,24 @@
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>molecule init role --role-name $ROLENAME --verifier-name testinfra --driver-name docker
 </pre></div>
 </td></tr></table>
+
+<p>To run molecule inside a docker container:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>docker run --rm -it -v &quot;$(pwd)&quot;:/tmp/$(basename &quot;${PWD}&quot;):ro \
+-v /var/run/docker.sock:/var/run/docker.sock \
+-w /tmp/$(basename &quot;${PWD}&quot;) quay.io/ansible/molecule:2.20 \
+molecule test
+</pre></div>
+</td></tr></table>
+
+<p>To use molecule inside a docker container transparently add the following to your shell rc file (bashrc, zshrc, etc.)</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>alias &#39;molecule=docker run --rm -it -v &quot;$(pwd)&quot;:/tmp/$(basename &quot;${PWD}&quot;):ro -v /var/run/docker.sock:/var/run/docker.sock -w /tmp/$(basename &quot;${PWD}&quot;) quay.io/ansible/molecule:2.20 molecule&#39;
+</pre></div>
+</td></tr></table>
+
+<p>You can then invoke molecule simply with <code>molecule</code>. For example, <code>molecule test</code>, abstracting the docker stuff away from usage.</p>
                 
                   
                 
@@ -640,7 +658,7 @@
       
     </div>
     
-      <script src="../assets/javascripts/application.d9aa80ab.js"></script>
+      <script src="../assets/javascripts/application.2ba8dec4.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
       
